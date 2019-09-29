@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,15 +7,24 @@ import { Observable } from 'rxjs';
 })
 export class GithubService {
   private githubUrl = "https://api.github.com"
+  username: string;
 
   constructor(private http: HttpClient) { }
 
-  getUser(username: string): Observable<any> {
-    const url = `${this.githubUrl}/users/${username}`
-    return this.http.get<any>(url)
+  getUser(): Observable<any> {
+    const url = `${this.githubUrl}/users/${this.username}`
+    return this.http.get<any>(url, ({
+      headers: new HttpHeaders({Authorization: "token 8475f4676b7857ba59acf1e48e64f52d753b9ec5"})
+    }))
   }
 
-  getRepos(username: string): Observable<any> {
-    return this.http.get<any>(`${this.githubUrl}/users/${username}/repos`)
+  getRepos(): Observable<any> {
+    return this.http.get<any>(`${this.githubUrl}/users/${this.username}/repos`, ({
+      headers: new HttpHeaders({Authorization: "token 8475f4676b7857ba59acf1e48e64f52d753b9ec5"})
+    }))
   }
-}
+
+  setUserName(username: string): void {
+    this.username = username;
+  }
+ }

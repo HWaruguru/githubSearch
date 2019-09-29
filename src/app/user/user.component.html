@@ -1,4 +1,6 @@
-<div class="card">
+<input type="text" class="form-control" name="username" [(ngModel)]="username" (keyup)="search()" placeholder="Search...">
+<br>
+<div class="card" *ngIf="user">
   <div class="card-header">
     <span *ngIf="user.name">{{user.name}}</span>
     <span *ngIf="!user.name">{{user.login}}</span>
@@ -30,7 +32,7 @@
 </div>
 <!-- repos -->
 <br>
-<div class="card">
+<div class="card" *ngIf="repos">
   <div class="card-header">
     <span *ngIf="user.name">{{user.name}} Repos</span>
     <span *ngIf="!user.name">{{user.login}} Repos</span>
@@ -47,7 +49,7 @@
             <div class="col-md-6">
               <div class="stats">
                 <span class="alert alert-secondary">{{repo.stargazers_count}} Stars</span>
-                <span class="alert alert-secondary">{{repo.language}}</span>
+                <span class="alert alert-secondary" *ngIf="repo.language">{{repo.language}}</span>
               </div>
             </div>
           </div>
