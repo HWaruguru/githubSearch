@@ -8,7 +8,7 @@ import { User } from '../user';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  user: User;
+  user: any;
   username = "hwaruguru"
   repos: any;
 

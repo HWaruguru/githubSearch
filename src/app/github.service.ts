@@ -14,9 +14,9 @@ export class GithubService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(): Observable<User> {
+  getUser(): Observable<any> {
     const url = `${this.githubUrl}/users/${this.username}`
-    return this.http.get<User>(url, ({
+    return this.http.get<any>(url, ({
       headers: new HttpHeaders({Authorization: `token ${environment.apikey}`})
     }))
   }
