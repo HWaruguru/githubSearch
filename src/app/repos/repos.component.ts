@@ -8,7 +8,7 @@ import { GithubService } from '../github.service';
 })
 export class ReposComponent implements OnInit {
   repos: any[];
-  repo: string;
+  repo: string = 'tetris';
 
   constructor(private githubService: GithubService) { }
 
@@ -21,6 +21,7 @@ export class ReposComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchRepos()
   }
 
 }

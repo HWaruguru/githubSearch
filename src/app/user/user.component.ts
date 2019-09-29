@@ -8,7 +8,7 @@ import { GithubService } from '../github.service';
 })
 export class UserComponent implements OnInit {
   user: any;
-  username = ""
+  username = "hwaruguru"
   repos: any;
 
   constructor(private githubService: GithubService) { }
@@ -26,6 +26,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.search()
   }
 
 }
