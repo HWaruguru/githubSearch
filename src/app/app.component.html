@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light bg-light">
   <span class="navbar-brand">{{title}}</span>
-  <span><a [routerLink]="[nav_url]">Search for {{nav_text}} instead?</a></span>
+  <span><a *ngIf='nav_url' [routerLink]="[nav_url]">Search for {{nav_text}} instead?</a></span>
 </nav>
 <div class="container">
   <router-outlet></router-outlet>
