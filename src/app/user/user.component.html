@@ -1,4 +1,3 @@
-
 <div class="card">
   <div class="card-header">
     <span *ngIf="user.name">{{user.name}}</span>
@@ -7,7 +6,7 @@
   <div class="card-body">
     <div class="row">
       <div class="col-md-4">
-        <img class="img-thumbnail" [src]="user.avatar_url" alt="users avatar"/>
+        <img class="img-thumbnail" [src]="user.avatar_url" alt="users avatar" />
         <p class="text-muted">{{user.bio}}</p>
       </div>
       <div class="col-md-8">
@@ -17,6 +16,7 @@
           <span class="alert alert-secondary">{{user.public_repos}} Public Repos</span>
           <span class="alert alert-secondary">{{user.public_gists}} Public Gists</span>
         </div>
+        <br>
         <ul class="list-group">
           <li class="list-group-item">Username: {{user.login}}</li>
           <li class="list-group-item">Email: {{user.email}}</li>
@@ -28,4 +28,31 @@
     </div>
   </div>
 </div>
-
+<!-- repos -->
+<br>
+<div class="card">
+  <div class="card-header">
+    <span *ngIf="user.name">{{user.name}} Repos</span>
+    <span *ngIf="!user.name">{{user.login}} Repos</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div *ngFor="let repo of repos">
+          <div class="row">
+            <div class="col-md-6">
+              <h4><a href="{{repo.html_url}}">{{repo.name}}</a></h4>
+            </div>
+            <div class="col-md-6">
+              <div class="stats">
+                <span class="alert alert-secondary">{{repo.stargazers_count}} Stars</span>
+                <span class="alert alert-secondary">{{repo.language}}</span>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
