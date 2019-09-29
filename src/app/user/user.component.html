@@ -1,0 +1,31 @@
+
+<div class="card">
+  <div class="card-header">
+    <span *ngIf="user.name">{{user.name}}</span>
+    <span *ngIf="!user.name">{{user.login}}</span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="img-thumbnail" [src]="user.avatar_url" alt="users avatar"/>
+        <p class="text-muted">{{user.bio}}</p>
+      </div>
+      <div class="col-md-8">
+        <div class="stats">
+          <span class="alert alert-secondary">{{user.followers}} Followers</span>
+          <span class="alert alert-secondary">Following {{user.following}}</span>
+          <span class="alert alert-secondary">{{user.public_repos}} Public Repos</span>
+          <span class="alert alert-secondary">{{user.public_gists}} Public Gists</span>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">Username: {{user.login}}</li>
+          <li class="list-group-item">Email: {{user.email}}</li>
+          <li class="list-group-item">Location: {{user.location}}</li>
+          <li class="list-group-item">Blog: <a href="{{user.blog}}">{{user.blog}}</a></li>
+          <li class="list-group-item">Joined: {{user.created_at}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
