@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment'
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,9 @@ export class GithubService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(): Observable<any> {
+  getUser(): Observable<User> {
     const url = `${this.githubUrl}/users/${this.username}`
-    return this.http.get<any>(url, ({
+    return this.http.get<User>(url, ({
       headers: new HttpHeaders({Authorization: `token ${environment.apikey}`})
     }))
   }
