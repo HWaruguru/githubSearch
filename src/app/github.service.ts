@@ -9,6 +9,7 @@ import { environment } from '../environments/environment'
 export class GithubService {
   private githubUrl = "https://api.github.com"
   username: string;
+  repo: string;
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +26,17 @@ export class GithubService {
     }))
   }
 
+  searchrepos(): Observable<any> {
+    return this.http.get<any>(`${this.githubUrl}/search/repositories?q=${this.repo}`, ({
+      headers: new HttpHeaders({Authorization: `token ${environment.apikey}`})
+    }))
+  }
+
   setUserName(username: string): void {
     this.username = username;
+  }
+
+  setRepo(repo: string): void {
+    this.repo = repo;
   }
  }
