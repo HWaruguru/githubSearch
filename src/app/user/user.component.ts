@@ -8,7 +8,7 @@ import { GithubService } from '../github.service';
 })
 export class UserComponent implements OnInit {
   user: any;
-  username = "HWaruguru"
+  username = "boswellgathu"
   repos: any;
 
   constructor(private githubService: GithubService) { }
